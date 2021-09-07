@@ -7,7 +7,7 @@ class Header extends Component {
       <header id="topHeader">
         <nav id="topNav">
           <h1>HighOnCoding</h1>
-          <div id="navBtns">
+          <div id="navLinks">
             <button>Home</button>
             <button>Categories</button>
           </div>

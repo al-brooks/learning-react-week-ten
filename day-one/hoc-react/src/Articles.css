@@ -1,0 +1,30 @@
+#articleSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0px 20px;
+}
+
+.articles {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 90%;
+}
+
+.articleTitles {
+  color: rgb(47, 47, 255);
+}
+
+.socialBtns {
+  display: flex;
+  flex-direction: row;
+  background-color: orange;
+}
+
+.socialBtns span {
+  margin: 0px 10px;
+  color: white;
+}
