@@ -1,0 +1,15 @@
+#topHeader {
+  width: 100%;
+}
+
+#topNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0px 20px;
+}
+
+#navBtns {
+  margin-left: 25px;
+}
