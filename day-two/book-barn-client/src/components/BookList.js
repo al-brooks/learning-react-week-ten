@@ -1,25 +1,22 @@
-import { Component } from 'react';
+import { connect } from 'react-redux';
 
-class BookList extends Component {
-  render() {
-    const books = this.props.books;
-    const bookItems = books.map((book, index) => {
-      return <div key={index}>{book.title}</div>;
-    });
+function BookList(props) {
+  const bookItems = props.books.map((book) => {
+    return <div key={book.book_id}>{book.name}</div>;
+  });
 
-    const display = [];
-
-    for (let i = 0; i < 6; i++) {
-      display.push(bookItems[i]);
-    }
-
-    return (
-      <section>
-        <h4>Here's a list of our books!</h4>
-        {display}
-      </section>
-    );
-  }
+  return (
+    <section>
+      <h4>Here's a list of our books!</h4>
+      {bookItems}
+    </section>
+  );
 }
 
-export default BookList;
+const mapStateToProps = (state) => {
+  return {
+    books: state.books
+  };
+};
+
+export default connect(mapStateToProps)(BookList);
