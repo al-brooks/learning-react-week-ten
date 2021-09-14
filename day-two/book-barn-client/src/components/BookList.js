@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-class BestList extends Component {
+class BookList extends Component {
   render() {
     const books = this.props.books;
     const bookItems = books.map((book, index) => {
@@ -15,11 +15,11 @@ class BestList extends Component {
 
     return (
       <section>
-        <h6>BEST BOOKS OF THE MONTH: OCTOBER 2018</h6>
+        <h4>Here's a list of our books!</h4>
         {display}
       </section>
     );
   }
 }
 
-export default BestList;
+export default BookList;

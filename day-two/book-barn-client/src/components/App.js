@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import GenreSearch from './GenreSearch';
-import BestList from './BestList';
+import BookList from './BookList';
 
 class App extends Component {
   constructor() {
@@ -40,7 +40,7 @@ class App extends Component {
       <div>
         <main>
           <GenreSearch />
-          <BestList books={this.state.books} />
+          <BookList books={this.state.books} />
         </main>
       </div>
     );
