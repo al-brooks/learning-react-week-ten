@@ -12,6 +12,7 @@ function App(props) {
         props.onBooksLoaded(books);
       });
   };
+
   useEffect(() => {
     fetchBooks();
   }, []);

@@ -17,6 +17,26 @@ CREATE TABLE bb_books (
     imageUrl TEXT 
 )
 
+CREATE TABLE bb_cart (
+	cart_id SERIAL PRIMARY KEY,
+  	book_id INTEGER REFERENCES bb_books (book_id) ON DELETE CASCADE,
+  	user_id INTEGER REFERENCES bb_users (user_id) ON DELETE CASCADE
+)
+
+SELECT
+books.name,
+books.genre,
+books.imageurl
+FROM bb_cart AS cart
+INNER JOIN bb_books AS books
+ON cart.book_id = books.book_id
+
+INSERT INTO bb_cart (book_id) 
+VALUES 
+(1), 
+(2),
+(1)
+
 INSERT INTO bb_books (name, genre, publisher, year, imageURL)
 VALUES
 ('Harry Potter and the Sorcerer"s Stone', 'Fantasy', 'Scholastic Inc', 1997, 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474154022l/3._SY475_.jpg'),

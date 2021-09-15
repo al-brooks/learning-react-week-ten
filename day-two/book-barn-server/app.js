@@ -32,16 +32,12 @@ app.post('/api/books', (req, res) => {
   const year = req.body.year;
   const imageUrl = req.body.imageUrl;
 
-  const book = {
-    name: name,
-    genre: genre,
-    publisher: publisher,
-    year: year,
-    imageUrl: imageUrl
-  };
-  // books.push(book);
-
-  res.json({ success: 'book has been successfully added' });
+  db.none(
+    'INSERT INTO bb_books(name, genre, publisher, year, imageUrl) VALUES($1, $2, $3, $4, $5)',
+    [name, genre, publisher, year, imageUrl]
+  ).then(() => {
+    res.send({ success: 'book has been successfully added' });
+  });
 });
 
 app.listen(process.env.PORT, () => {

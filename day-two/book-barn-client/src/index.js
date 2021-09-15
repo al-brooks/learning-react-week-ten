@@ -4,6 +4,7 @@ import './index.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import BaseLayout from './components/BaseLayout';
 import App from './components/App';
+import AddBook from './components/AddBook';
 import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -21,6 +22,7 @@ ReactDOM.render(
         <BaseLayout>
           <Switch>
             <Route exact path="/" component={App} />
+            <Route exact path="/AddBook" component={AddBook} />
           </Switch>
         </BaseLayout>
       </BrowserRouter>
