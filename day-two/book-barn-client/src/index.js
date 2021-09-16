@@ -6,15 +6,22 @@ import BaseLayout from './components/BaseLayout';
 import App from './components/App';
 import AddBook from './components/AddBook';
 import reportWebVitals from './reportWebVitals';
-import { applyMiddleware, compose, createStore } from 'redux';
+import { applyMiddleware, compose, createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import reducer from './store/reducer';
+import booksReducer from './store/reducers/books';
+
+const rootReducer = combineReducers({
+  booksReducer: booksReducer
+});
 
 const composeEnchancers =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(reducer, composeEnchancers(applyMiddleware(thunk)));
+const store = createStore(
+  rootReducer,
+  composeEnchancers(applyMiddleware(thunk))
+);
 
 ReactDOM.render(
   <React.StrictMode>

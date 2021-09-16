@@ -15,7 +15,7 @@ function BookList(props) {
 
 const mapStateToProps = (state) => {
   return {
-    books: state.books
+    books: state.booksReducer.books
   };
 };
 
