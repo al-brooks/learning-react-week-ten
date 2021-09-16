@@ -7,7 +7,7 @@ import Cart from './Cart';
 function Header(props) {
   useEffect(() => {
     props.onCartLoaded();
-  }, []);
+  }, [props]);
 
   return (
     <header>

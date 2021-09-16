@@ -7,7 +7,7 @@ import BookList from './components/BookList';
 function App(props) {
   useEffect(() => {
     props.onBooksLoaded();
-  }, []);
+  }, [props]);
 
   return (
     <div>
