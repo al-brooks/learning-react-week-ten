@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
-import * as actionCreators from '../store/creators/actionCreators';
-import GenreSearch from './GenreSearch';
-import BookList from './BookList';
+import * as actionCreators from './store/creators/actionCreators';
+import GenreSearch from './components/GenreSearch';
+import BookList from './components/BookList';
 
 function App(props) {
   useEffect(() => {

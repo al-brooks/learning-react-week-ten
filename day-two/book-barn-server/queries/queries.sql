@@ -39,12 +39,13 @@ VALUES
 
 INSERT INTO bb_books (name, genre, publisher, year, imageURL)
 VALUES
-('Harry Potter and the Sorcerer"s Stone', 'Fantasy', 'Scholastic Inc', 1997, 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474154022l/3._SY475_.jpg'),
-('The Hobbit', 'Fantasy', 'Houghton Mifflin', 1937, 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546071216l/5907.jpg'),
-('The Eye of the World - The Wheel of Time Book 1', 'Fantasy', 'Tor Books', 1990, 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1337818095l/228665.jpg'),
-('To Kill A Mockingbird', 'Southern Gothic', 'Harper Perennial Modern Classics', 1960,'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1553383690l/2657.jpg'),
-('The Great Gatsby', 'Tragedy', 'Scribner', 1925, 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1490528560l/4671._SY475_.jpg'),
-('Dune', 'Sci-Fi','Ace Books', 1965,'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1555447414l/44767458.jpg')
+('Harry Potter and the Sorcerer"s Stone', 'Fantasy', 'Scholastic Inc', 1997, 'https://embed.cdn.pais.scholastic.com/v1/channels/sso/products/identifiers/isbn/9780590353403/primary/renditions/700?useMissingImage=true'),
+('The Hobbit', 'Fantasy', 'Houghton Mifflin', 1937, 'https://g.christianbook.com/g/slideshow/6/60309/main/60309_1_ftc.jpg'),
+('The Eye of the World - The Wheel of Time Book 1', 'Fantasy', 'Tor Books', 1990, 'https://images-na.ssl-images-amazon.com/images/I/91cJ0-MXtGL.jpg'),
+('To Kill A Mockingbird', 'Southern Gothic', 'Harper Perennial Modern Classics', 1960,'https://images-na.ssl-images-amazon.com/images/I/71FxgtFKcQL.jpg'),
+('The Great Gatsby', 'Tragedy', 'Scribner', 1925, 'https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781982146702/the-great-gatsby-9781982146702_hr.jpg'),
+('Dune', 'Sci-Fi','Ace Books', 1965,'https://images-na.ssl-images-amazon.com/images/I/A1u+2fY5yTL.jpg'),
+('Harry Potter and the Prisoner of Azkaban','Fantasy','Scholastic Inc.',2004,'https://images-na.ssl-images-amazon.com/images/I/81lAPl9Fl0L.jpg')
 
 
 -- Added column to users table
@@ -64,3 +65,23 @@ ADD COLUMN test_user BOOLEAN DEFAULT FALSE
 
 -- I updated the column values to true since all users at this point are test users
 UPDATE users SET test_user = true
+
+
+ALTER TABLE bb_cart
+ADD COLUMN is_deleted BOOLEAN
+
+SELECT
+COUNT(cart_id) AS "num_books"
+FROM bb_cart
+
+SELECT
+cart_id,
+book_id
+FROM bb_cart
+WHERE is_deleted = false
+
+UPDATE bb_cart 
+SET is_deleted = true
+WHERE cart_id = 1
+
+update bb_books set name = 'Harry Potter and the Sorcerer''s Stone' where book_id = 1

@@ -25,6 +25,19 @@ app.get('/api/books', (req, res) => {
 });
 
 // passes |
+app.get('/api/cart', (req, res) => {
+  db.any(
+    'SELECT cart_id, book_id, is_deleted FROM bb_cart WHERE is_deleted = false'
+  )
+    .then((cart) => {
+      res.json(cart);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+// passes |
 app.post('/api/books', (req, res) => {
   const name = req.body.name;
   const genre = req.body.genre;

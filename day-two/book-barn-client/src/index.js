@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import BaseLayout from './components/BaseLayout';
-import App from './components/App';
+import App from './App';
 import AddBook from './components/AddBook';
 import reportWebVitals from './reportWebVitals';
 import { applyMiddleware, compose, createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import booksReducer from './store/reducers/books';
+import cartReducer from './store/reducers/cart';
 
 const rootReducer = combineReducers({
-  booksReducer: booksReducer
+  booksReducer: booksReducer,
+  cartReducer: cartReducer
 });
 
 const composeEnchancers =

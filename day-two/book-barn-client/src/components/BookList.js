@@ -2,7 +2,16 @@ import { connect } from 'react-redux';
 
 function BookList(props) {
   const bookItems = props.books.map((book) => {
-    return <div key={book.book_id}>{book.name}</div>;
+    return (
+      <div key={book.book_id}>
+        <h5>{book.name}</h5>
+        <img
+          src={book.imageurl}
+          alt={book.name + ' cover'}
+          style={{ height: 500 + 'px' }}
+        />
+      </div>
+    );
   });
 
   return (

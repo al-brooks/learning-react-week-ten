@@ -10,3 +10,13 @@ export const fetchBooks = () => {
       });
   };
 };
+
+export const fetchCart = () => {
+  return (dispatch) => {
+    fetch('http://localhost:8080/api/cart')
+      .then((response) => response.json())
+      .then((cart) => {
+        dispatch({ type: actionTypes.CART_LOADED, payload: cart });
+      });
+  };
+};
