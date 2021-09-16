@@ -5,16 +5,8 @@ import GenreSearch from './GenreSearch';
 import BookList from './BookList';
 
 function App(props) {
-  const fetchBooks = () => {
-    fetch('http://localhost:8080/api/books')
-      .then((response) => response.json())
-      .then((books) => {
-        props.onBooksLoaded(books);
-      });
-  };
-
   useEffect(() => {
-    fetchBooks();
+    props.onBooksLoaded();
   }, []);
 
   return (
@@ -29,7 +21,7 @@ function App(props) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onBooksLoaded: (books) => dispatch(actionCreators.saveBooks(books))
+    onBooksLoaded: () => dispatch(actionCreators.fetchBooks())
   };
 };
 

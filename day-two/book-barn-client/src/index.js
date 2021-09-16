@@ -6,14 +6,15 @@ import BaseLayout from './components/BaseLayout';
 import App from './components/App';
 import AddBook from './components/AddBook';
 import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux';
+import { applyMiddleware, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import reducer from './store/reducer';
 
-const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const composeEnchancers =
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(reducer, composeEnchancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <React.StrictMode>
